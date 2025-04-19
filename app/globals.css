@@ -1,0 +1,155 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+}
+
+html,
+body {
+  height: 100%;
+  overflow-x: hidden;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+}
+
+/* Animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-delay {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes drop-shadow-glow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 5px rgba(234, 179, 8, 0.5));
+  }
+  50% {
+    filter: drop-shadow(0 0 15px rgba(234, 179, 8, 0.8));
+  }
+}
+
+@keyframes fall {
+  from {
+    transform: translateY(-100vh) rotate(0deg);
+  }
+  to {
+    transform: translateY(100vh) rotate(720deg);
+  }
+}
+
+/* Utility classes */
+.animate-fade-in {
+  animation: fade-in 0.8s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.8s ease-out forwards;
+}
+
+.animate-fade-in-delay {
+  animation: fade-in-delay 1.5s ease-out forwards;
+}
+
+.drop-shadow-glow {
+  filter: drop-shadow(0 0 8px rgba(234, 179, 8, 0.6));
+  animation: drop-shadow-glow 3s ease-in-out infinite;
+}
+
+/* Fix for iOS Safari 100vh issue */
+.min-h-screen {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+}
+
+html {
+  height: -webkit-fill-available;
+}
+
+/* Hide scrollbars but allow scrolling */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Custom button styles */
+.btn-primary {
+  @apply bg-yellow-600 hover:bg-yellow-500 text-black font-bold rounded-xl;
+}
+
+.btn-outline {
+  @apply border-yellow-500/50 text-white hover:bg-yellow-900/20 rounded-xl;
+}
+
+.btn-secondary {
+  @apply bg-green-600 hover:bg-green-500 text-white font-bold rounded-xl;
+}
+
+.btn-danger {
+  @apply bg-red-600 hover:bg-red-500 text-white font-bold rounded-xl;
+}
+
+/* Card styles */
+.card {
+  @apply bg-black/70 border-yellow-500/30 rounded-xl overflow-hidden;
+}
+
+/* Input styles */
+.input {
+  @apply bg-black/50 border-yellow-500/30 text-white rounded-xl;
+}
+
+/* Override default button styles */
+button,
+.button {
+  @apply rounded-xl;
+}
